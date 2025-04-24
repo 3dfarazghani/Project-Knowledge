@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, BookOpen } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, BookOpen, GraduationCap } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}
-          <div>
+          <div className="md:col-span-2">
             <div className="flex items-center mb-4">
               <BookOpen className="h-8 w-8 text-blue-400" />
               <span className="ml-2 text-xl font-bold">EduMind</span>
@@ -45,14 +45,19 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Resources */}
+          {/* Educator Resources */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              <div className="flex items-center">
+                <GraduationCap className="h-5 w-5 mr-2" />
+                Educator Resources
+              </div>
+            </h3>
             <ul className="space-y-2">
+              <li><Link to="/educators/dashboard" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">Dashboard</Link></li>
+              <li><Link to="/educators/lab" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">Immersive Lab</Link></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">Teacher Training</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">Child Psychology</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">Parent Resources</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">Educational Games</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">Lesson Plans</a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">Support Center</a></li>
             </ul>
           </div>

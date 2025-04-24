@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, BookOpen, User } from 'lucide-react';
+import { Menu, X, BookOpen, User, GraduationCap } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
 import AuthModal from './AuthModal';
 import Button from './Button';
@@ -41,11 +41,30 @@ const Navbar: React.FC = () => {
             <Link to="/games" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
               Games
             </Link>
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center">
+                <GraduationCap className="w-4 h-4 mr-1" />
+                Educators
+              </button>
+              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="py-1">
+                  <Link
+                    to="/educators/dashboard"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
+                    to="/educators/lab"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Immersive Lab
+                  </Link>
+                </div>
+              </div>
+            </div>
             <Link to="/contact" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
               Contact
-            </Link>
-            <Link to="/policy" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
-              Policy
             </Link>
 
             {user ? (
@@ -123,19 +142,29 @@ const Navbar: React.FC = () => {
           >
             Games
           </Link>
+          <div className="border-t border-gray-200 my-2 py-2">
+            <div className="px-3 text-sm font-medium text-gray-700">Educators</div>
+            <Link 
+              to="/educators/dashboard" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 pl-6"
+              onClick={() => setIsOpen(false)}
+            >
+              Dashboard
+            </Link>
+            <Link 
+              to="/educators/lab" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 pl-6"
+              onClick={() => setIsOpen(false)}
+            >
+              Immersive Lab
+            </Link>
+          </div>
           <Link 
             to="/contact" 
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
             onClick={() => setIsOpen(false)}
           >
             Contact
-          </Link>
-          <Link 
-            to="/policy" 
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-            onClick={() => setIsOpen(false)}
-          >
-            Policy
           </Link>
 
           {user ? (

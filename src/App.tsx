@@ -10,6 +10,8 @@ import ContactPage from './pages/ContactPage';
 import PolicyPage from './pages/PolicyPage';
 import MindfulLearning from './pages/apps/MindfulLearning';
 import MathExplorer from './pages/games/MathExplorer';
+import Dashboard from './pages/educators/Dashboard';
+import ImmersiveLab from './pages/educators/ImmersiveLab';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/games/math-explorer" element={<MathExplorer />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/policy" element={<PolicyPage />} />
+          <Route path="/educators/dashboard" element={<Dashboard />} />
+          <Route path="/educators/lab" element={<ImmersiveLab />} />
         </Routes>
       </MainLayout>
     </Router>
